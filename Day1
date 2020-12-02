@@ -9,8 +9,10 @@ num_list = [1254,1313,1456,1782,1742,1391,1273,1286,1373,1891,1188,1994,1887,181
             1269,1722,2001,1923,1395,1094,1140,1958,1239,1336,1588,1338,1750,1757,1444,1822,1335,1941,1865,1767,1881,
             1499,1157,1990,1210,1779,1201,1784,1961,1476,1861,1468]
 
+import itertools
+
 def day_1_part_1(num_list):
-    com_list = list(itertools.combinations(num_list,3))
+    com_list = list(itertools.combinations(num_list,2))
     idx = 0
     for idx in range(len(com_list)):
         x = com_list[idx][0]
