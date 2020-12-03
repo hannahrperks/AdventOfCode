@@ -10,13 +10,34 @@ def day_2_part_1(lst):
         x = list(i.replace('-',' ').replace('\n','').replace(':','').split(' '))
         lol.append(x)
     for l in lol:
-        min = int(l[0])
-        max = int(l[1])
+        min_cnt = int(l[0])
+        max_cnt = int(l[1])
         pswd = l[3]
         for letter in l[2]:
             cnt = pswd.count(letter)
-            if min <= cnt <= max:
+            if min_cnt <= cnt <= max_cnt:
                 valid_cnt += 1
     return valid_cnt
 
+
 print(day_2_part_1(day_2_list))
+
+
+def day_2_part_2(lst):
+    lol = []
+    valid_cnt = 0
+    for i in lst:
+        x = list(i.replace('-', ' ').replace('\n', '').replace(':', '').split(' '))
+        lol.append(x)
+    for l in lol:
+        idx1 = int(l[0])-1
+        idx2 = int(l[1])-1
+        pswd = l[3]
+        if pswd[idx1] == l[2] and pswd[idx2] != l[2]:
+            valid_cnt += 1
+        if pswd[idx2] == l[2] and pswd[idx1] != l[2]:
+            valid_cnt += 1
+    return valid_cnt
+
+
+print(day_2_part_2(day_2_list))
