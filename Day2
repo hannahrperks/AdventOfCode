@@ -1,1 +1,22 @@
+f = open(r'C:\Users\HannahPerks\OneDrive - Kubrick Group\Documents\Python Scripts\Advent of Code\Day2 Input.txt', 'r')
+day_2_list = f.readlines()
+f.close()
 
+
+def day_2_part_1(lst):
+    lol = []
+    valid_cnt = 0
+    for i in lst:
+        x = list(i.replace('-',' ').replace('\n','').replace(':','').split(' '))
+        lol.append(x)
+    for l in lol:
+        min = int(l[0])
+        max = int(l[1])
+        pswd = l[3]
+        for letter in l[2]:
+            cnt = pswd.count(letter)
+            if min <= cnt <= max:
+                valid_cnt += 1
+    return valid_cnt
+
+print(day_2_part_1(day_2_list))
