@@ -1,0 +1,26 @@
+f = open(r'C:\Users\HannahPerks\OneDrive - Kubrick Group\Documents\Python Scripts\Advent of Code\Day3 Input.txt', 'r')
+day_3_list = f.readlines()
+f.close()
+
+
+def day_3_part_1(lst):
+    map = []
+    for i in lst:
+        map.append(i.replace('\n', ''))
+    row = 0
+    col = 0
+    cnt = 0
+    pos_list = []
+    for row in range(len(map)):
+        if col < len(map[row]):
+            pos = map[row][col]
+            pos_list.append(pos)
+            if pos == '#':
+                cnt += 1
+            row += 1
+            col += 3
+        else:
+            x = col - len(map[row])
+            col = x
+    print(len(pos_list))
+    return cnt
